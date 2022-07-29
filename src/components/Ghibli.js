@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ghibliActions } from "../store/ghibliSlice";
 import { Link } from "react-router-dom";
-import WatchList from "./WatchList";
 const Ghibli = () => {
   const [animes, setAnimes] = useState([]);
   const dispatch = useDispatch();
