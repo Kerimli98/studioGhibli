@@ -19,6 +19,37 @@ h1 {
   padding-left: 100px;
   padding-top: 80px;
 }
+.searchbar {
+  margin-left: 100px;
+  margin-top: 80px;
+  position: relative;
+  width: 300px;
+}
+.searchbar input {
+  border-radius: 10px;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border: 1px solid wheat;
+  padding: 10px 10px;
+  color: wheat;
+}
+.searchbar i {
+  color: wheat;
+  font-size: 18px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+.filtered-results {
+  margin-left: 100px;
+  margin-top:0;
+}
+.searched-service {
+  padding: 10px 10px;
+  color: wheat;
+  transition: all 0.3 ease;
+}
 .cards {
   display: grid;
   align-items: center;
@@ -54,12 +85,12 @@ h1 {
 .anime-title {
   z-index: 700;
   position: absolute;
-  bottom:0px;
+  bottom: 0px;
   /* transform: translate(-50%, -50%); */
-  left:0;
+  left: 0;
   right: 0;
   background-color: rgba(32, 32, 32, 0.8);
-  padding:15px;
+  padding: 15px;
 }
 .desc-bg {
   padding: 15px;
@@ -110,7 +141,7 @@ h1 {
   position: absolute;
   right: 15px;
   display: inline-block;
-top:10px;
+  top: 10px;
   cursor: pointer;
   padding: 0;
 }
@@ -221,7 +252,7 @@ h2 {
   color: rgba(32, 32, 32, 1);
 }
 
-@media  (max-width:900px) {
+@media (max-width: 900px) {
   h1 {
     font-size: 34px;
     font-weight: 500;
@@ -235,18 +266,27 @@ h2 {
   .watch {
     top: 70px;
   }
+  .searchbar {
+    margin-left: 50px;
+    margin-top: 50px;
+
+  }
 }
-@media  (max-width:600px) {
+@media (max-width: 600px) {
   h1 {
     font-size: 32px;
     padding-left: 30px;
   }
   .cards {
     padding-left: 30px;
-
   }
   .watch {
     top: 120px;
     left: 30px;
+  }
+  .searchbar {
+    margin-left: 30px;
+    margin-top: 60px;
+    width: 300px;
   }
 }

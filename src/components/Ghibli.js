@@ -30,10 +30,24 @@ const Ghibli = () => {
   const removeWatchlist = (anime) => {
     dispatch(ghibliActions.removeItem(anime.id));
   };
-  const [loaded, setLoaded] = useState(8);
+  const [loaded, setLoaded] = useState(10);
   const showMoreItems = () => {
     setLoaded((prev) => prev + 4);
   };
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearchbar = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  const filteredResults = animes.filter((anime) => {
+    if (searchTerm === "") return anime;
+    else if (anime.director.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return anime;
+    } else {
+      return console.log("not found");
+    }
+  });
+  console.log(filteredResults);
   return (
     <div className="container">
       <h1>Studio Ghibli Animes</h1>
@@ -43,8 +57,26 @@ const Ghibli = () => {
           <i className="watch-icon fa-solid fa-film"></i>
         </div>
       </Link>
+      <div className="searchbar">
+        <input
+          type="text"
+          className="searc-input"
+          placeholder="Find by Director"
+          onChange={(e) => handleSearchbar(e)}
+        />
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </div>
+      {/* <div className="filtered-results">
+        {filteredResults.map((val, index) => {
+          return (
+            <div className="searched-service" key={index}>
+              <p>{val.director}</p>
+            </div>
+          );
+        })}
+      </div> */}
       <div className="cards">
-        {animes.slice(0, loaded).map((anime, index) => (
+        {filteredResults.slice(0, loaded).map((anime, index) => (
           <div className="card" key={anime.id}>
             <input
               type="checkbox"
