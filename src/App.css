@@ -1,38 +1,252 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Saira", sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  background-color: rgb(32, 32, 32);
+  padding: 0 0 120px 0;
+  min-height: 110vh;
+  width: 100%;
+  position: relative;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  color: wheat;
+  font-size: 54px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding-left: 100px;
+  padding-top: 80px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.cards {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 70px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+.card {
+  color: white;
+  padding: 0;
+  height: 380px;
+  border: 1px solid white;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius: 15px;
+}
+.anime-img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  margin-top: 40px;
+  position: relative;
+}
+.anime-title {
+  z-index: 700;
+  position: absolute;
+  bottom:0px;
+  /* transform: translate(-50%, -50%); */
+  left:0;
+  right: 0;
+  background-color: rgba(32, 32, 32, 0.8);
+  padding:15px;
+}
+.desc-bg {
+  padding: 15px;
+  transition: all 300ms ease-in-out 25ms;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  background-color: rgba(32, 32, 32, 1);
+  z-index: 1000;
+}
+
+.card:hover .desc-bg {
+  height: 150px;
+  opacity: 1;
+}
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.watch-icon {
+  color: wheat;
+  font-size: 30px;
+}
+.watch {
+  top: 110px;
+  right: 100px;
+  position: absolute;
+  align-self: flex-end;
+  cursor: pointer;
+}
+.watch span {
+  font-size: 20px;
+  color: wheat;
+  margin-right: 10px;
+}
+
+.styled-checkbox {
+  position: absolute;
+  opacity: 0;
+}
+.styled-checkbox + label {
+  position: absolute;
+  right: 15px;
+  display: inline-block;
+top:10px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.styled-checkbox + label:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f055         watchlist";
+  font-size: 12px;
+  word-spacing: 1px;
+}
+.styled-checkbox:checked + label:before {
+  content: "";
+}
+
+.styled-checkbox:checked + label:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  content: "\f00c      added";
+  font-size: 12px;
+}
+
+.watchlist {
+  background-color: rgb(32, 32, 32);
+  min-height: 100vh;
+  width: 100%;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.back {
+  color: wheat;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding-left: 100px;
+}
+h2 {
+  color: wheat;
+  font-size: 54px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding-left: 100px;
+}
+.w-cards {
+  padding-left: 100px;
+  padding-top: 80px;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+.w-card {
+  display: flex;
+  position: relative;
+  color: white;
+  border: 1px solid white;
+  width: 70%;
+  margin-top: 45px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.w-card:first-child {
+  margin-top: 0;
+}
+.w-anime-img {
+  height: 200px;
+  width: 150px;
+}
+.w-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+}
+.w-desc-bg {
+  margin-top: 15px;
+}
+.remove {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  background: none;
+  border: none;
+  color: brown;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+.remove:hover {
+  color: red;
+}
+.show-more {
+  color: wheat;
+  background: none;
+  border: 1px solid wheat;
+  transition: all 0.3s ease;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 20px;
+}
+.show-more:hover {
+  background-color: wheat;
+  color: rgba(32, 32, 32, 1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media  (max-width:900px) {
+  h1 {
+    font-size: 34px;
+    font-weight: 500;
+    padding-left: 50px;
+    padding-top: 60px;
   }
-  to {
-    transform: rotate(360deg);
+  .cards {
+    padding-left: 50px;
+    padding-top: 60px;
+  }
+  .watch {
+    top: 70px;
+  }
+}
+@media  (max-width:600px) {
+  h1 {
+    font-size: 32px;
+    padding-left: 30px;
+  }
+  .cards {
+    padding-left: 30px;
+
+  }
+  .watch {
+    top: 120px;
+    left: 30px;
   }
 }
